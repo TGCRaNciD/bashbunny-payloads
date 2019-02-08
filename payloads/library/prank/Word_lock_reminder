@@ -1,0 +1,48 @@
+#
+#
+# Title:             Word Awareness
+# Author:            TGCRaNciD (just modified for word) with credit to The10FpsGuy and Mrhut10
+#                    Thank you to Mrhut10 for the loop and THE10FpsGuy for the initial Idea 
+# Category:          Basic security awarness
+# Target:.           Windows (Microsoft Office Word)
+#
+#This script takes the work from The10FpsGuy and Mrhut10  in word_fun and applies it to Microsoft word if thats your thing
+#
+#options
+LED B G 100
+msg_header="enter what you want here"
+msg_body="enter what you want here"
+msg_body_repeats=1
+msg_end="enter what you want here"
+increase_font=10
+
+ATTACKMODE HID
+Q GUI r
+Q DELAY 150
+Q STRING winword.exe
+Q ENTER
+Q DELAY 1000
+Q ESCAPE
+Q DELAY 1000
+Q ALT v
+#Q DELAY 100 
+Q STRING u
+Q DELAY 500
+for (( i=1; i<=$increase_font; i++ ))
+do
+   Q CTRL ]
+done
+LED B 500
+
+Q DELAY 200
+Q STRING $msg_header
+Q ENTER
+
+for (( i=1; i<=$msg_body_repeats; i++ ))
+do
+   Q STRING $msg_body
+   Q ENTER
+done
+Q STRING $msg_end
+Q ENTER
+LED G 0
